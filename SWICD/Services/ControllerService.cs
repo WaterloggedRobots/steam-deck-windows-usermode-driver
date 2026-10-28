@@ -31,6 +31,7 @@ namespace SWICD.Services
         public bool FailedInit { get; private set; }
 
         private ButtonActionsProcessor _buttonActionsProcessor = new ButtonActionsProcessor();
+        private TrackpadHapticsProcessor _trackpadHapticsProcessor = new TrackpadHapticsProcessor();
         private NeptuneController _neptuneController;
         private ViGEmClient _viGEmClient;
         private ControllerConfig _currentControllerConfig = new ControllerConfig();
@@ -278,6 +279,7 @@ namespace SWICD.Services
             {
                 InputMapper.MapInput(_currentControllerConfig, state, _emulatedController);
                 _keyboardMouseInputMapper.MapKeyboardInput(_currentControllerConfig, state);
+                _trackpadHapticsProcessor.ProcessInput(_currentControllerConfig, state, _neptuneController, lastLeftHapticOn, lastRightHapticOn);
             }
 
             if(!LizardButtonsEnabled)
