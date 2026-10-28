@@ -78,6 +78,38 @@ namespace SWICD.ViewModels
                 NotifyPropertyChanged(nameof(HapticFeedbackAmplitudeText));
             }
         }
+        public bool TrackpadHapticsEnabled
+        {
+            get => ControllerConfig.ProfileSettings.TrackpadHapticsEnabled;
+            set
+            {
+                ControllerConfig.ProfileSettings.TrackpadHapticsEnabled = value;
+                NotifyPropertyChanged(nameof(TrackpadHapticsEnabledText));
+            }
+        }
+
+        public ushort TrackpadHapticsStrength
+        {
+            get => ControllerConfig.ProfileSettings.TrackpadHapticsStrength;
+            set
+            {
+                ControllerConfig.ProfileSettings.TrackpadHapticsStrength = value;
+                NotifyPropertyChanged(nameof(TrackpadHapticsStrengthText));
+            }
+        }
+
+        public ushort TrackpadHapticsTickDistance
+        {
+            get => ControllerConfig.ProfileSettings.TrackpadHapticsTickDistance;
+            set
+            {
+                ControllerConfig.ProfileSettings.TrackpadHapticsTickDistance = value;
+                NotifyPropertyChanged(nameof(TrackpadHapticsTickDistanceText));
+            }
+        }
+        public string TrackpadHapticsStrengthText => $"Strength ({TrackpadHapticsStrength})";
+        public string TrackpadHapticsTickDistanceText => $"Tick Spacing ({TrackpadHapticsTickDistance})";
+        public string TrackpadHapticsEnabledText => !TrackpadHapticsEnabled ? "Trackpad Haptics Disabled" : "Trackpad Haptics Enabled";
         public string HapticFeedbackPeriodText => $"Period ({HapticFeedbackPeriod})";
         public string HapticFeedbackAmplitudeText => $"Amplitude ({HapticFeedbackAmplitude})";
         public string HapticfeedbackEnabledText => !HapticFeedbackEnabled ? "Haptic Feedback Disabled" : "Haptic Feedback Enabled";

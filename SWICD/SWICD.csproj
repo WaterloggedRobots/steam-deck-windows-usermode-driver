@@ -640,6 +640,7 @@
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Services\ApiServer.cs" />
     <Compile Include="Services\ButtonActionsProcessor.cs" />
+    <Compile Include="Services\TrackpadHapticsProcessor.cs" />
     <Compile Include="Services\ControllerService.cs" />
     <Compile Include="Services\FontEnumMapper.cs" />
     <Compile Include="Services\GitHubApi.cs" />

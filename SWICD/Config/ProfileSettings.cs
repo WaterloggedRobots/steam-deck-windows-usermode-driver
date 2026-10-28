@@ -10,6 +10,9 @@ namespace SWICD.Config
         public bool HapticFeedbackEnabled { get; set; }
         public byte HapticFeedbackAmplitude { get; set; }
         public byte HapticFeedbackPeriod { get; set; }
+        public bool TrackpadHapticsEnabled { get; set; } = true;
+        public ushort TrackpadHapticsStrength { get; set; } = 400;
+        public ushort TrackpadHapticsTickDistance { get; set; } = 3000;
 
         [JsonIgnore]
         public bool ToggleInvertLizardMode { get; set; }
@@ -42,6 +45,9 @@ namespace SWICD.Config
                 HapticFeedbackEnabled = HapticFeedbackEnabled,
                 HapticFeedbackAmplitude = HapticFeedbackAmplitude,
                 HapticFeedbackPeriod = HapticFeedbackPeriod,
+                TrackpadHapticsEnabled = TrackpadHapticsEnabled,
+                TrackpadHapticsStrength = TrackpadHapticsStrength,
+                TrackpadHapticsTickDistance = TrackpadHapticsTickDistance,
             };
         }
 
@@ -52,7 +58,10 @@ namespace SWICD.Config
                    DisableLizardButtons == settings.DisableLizardButtons &&
                    HapticFeedbackEnabled == settings.HapticFeedbackEnabled &&
                    HapticFeedbackAmplitude == settings.HapticFeedbackAmplitude &&
-                   HapticFeedbackPeriod == settings.HapticFeedbackPeriod;
+                   HapticFeedbackPeriod == settings.HapticFeedbackPeriod &&
+                   TrackpadHapticsEnabled == settings.TrackpadHapticsEnabled &&
+                   TrackpadHapticsStrength == settings.TrackpadHapticsStrength &&
+                   TrackpadHapticsTickDistance == settings.TrackpadHapticsTickDistance;
         }
     }
 }
